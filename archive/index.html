@@ -1,0 +1,15 @@
+---
+layout: default
+title: 530
+description: 530's Blog Archive
+---
+
+<ul>
+    {% for post in site.posts %}
+    <li>
+        <h5>
+            <a href="{{ post.url }}">{{ post.title }}</a> <span class="badge">{{ post.date | date_to_string }}</span>
+        </h5>
+    </li>
+    {% endfor %}
+</ul>

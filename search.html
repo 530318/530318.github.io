@@ -1,0 +1,19 @@
+---
+layout: default
+---
+
+{% for category in site.categories %}
+{% assign nposts = category | last | size %}
+<div class="collection" data-name="{{ category | first | escape }}">
+    <!--     <h1><span class="label label-primary label-xs">{{ category | first }}</span> : {{ nposts }} post{% if nposts != 1 %}s{% endif %}</h1> -->
+    <ul>
+        {% for posts in category %}
+        {% for post in posts %}
+        {% if post.title %}
+        <li><a href="{{ post.url }}">{{ post.title }} - {{ post.date | date_to_string}}</a></li>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+    </ul>
+</div>
+{% endfor %}
